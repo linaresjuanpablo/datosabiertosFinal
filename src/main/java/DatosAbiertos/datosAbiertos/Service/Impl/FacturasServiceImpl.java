@@ -25,13 +25,14 @@ public class FacturasServiceImpl implements IFacturasService {
         List<FacturasResponseDto> facturasResponseDto = new ArrayList<>();
         List<Object[]> list = facturasRepository.findByFacturasDia(ano, mes, dia);
         Double totalVentaDia = facturasRepository.calculateSumByDia(ano, mes, dia);
+        facturasResponse.setTotalVenta(totalVentaDia);
         if (list == null || list.isEmpty()){
             System.out.println("no hay datos para mostrar");
             facturasResponse.setMensaje(Message.FECHAFACTURA);
         }
         for (Object[] dto: list){
             FacturasResponseDto result = new FacturasResponseDto("","","","",
-                    "", totalVentaDia );
+                    "");
             result.setId_contrato(((String) dto[0]));
             result.setEstado(((String) dto[1]));
             result.setNumero_de_factura(((String) dto[2]));
@@ -49,13 +50,14 @@ public class FacturasServiceImpl implements IFacturasService {
         List<FacturasResponseDto> facturasResponseDto = new ArrayList<>();
         List<Object[]> list = facturasRepository.findByFacturasMes(ano, mes);
         Double totalVentaMes = facturasRepository.calcularSumByMes(ano, mes);
+        facturasResponse.setTotalVenta(totalVentaMes);
         if (list == null || list.isEmpty()){
             System.out.println("no hay datos para ver");
             facturasResponse.setMensaje(Message.FECHAFACTURA);
         }
         for (Object[] dto: list){
             FacturasResponseDto result = new FacturasResponseDto("", "","","",
-                    "", totalVentaMes);
+                    "");
             result.setId_contrato(((String) dto[0]));
             result.setEstado(((String) dto[1]));
             result.setNumero_de_factura(((String) dto[2]));
@@ -73,13 +75,14 @@ public class FacturasServiceImpl implements IFacturasService {
         List<FacturasResponseDto> facturasResponseDto = new ArrayList<>();
         List<Object[]> list = facturasRepository.findByFacturasAno(ano);
         Double totalVentaAno = facturasRepository.calcularSumByAno(ano);
+        facturasResponse.setTotalVenta(totalVentaAno);
         if (list == null || list.isEmpty()){
             System.out.println("NO HAY INFORMACION");
             facturasResponse.setMensaje(Message.FECHAFACTURA);
         }
         for (Object[] dto: list){
             FacturasResponseDto result = new FacturasResponseDto("","","","",
-                    "", totalVentaAno);
+                    "");
             result.setId_contrato(((String) dto[0]));
             result.setEstado(((String) dto[1]));
             result.setNumero_de_factura(((String) dto[2]));

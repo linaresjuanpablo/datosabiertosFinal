@@ -7,14 +7,14 @@ import java.util.List;
 
 @Setter
 @Getter
-public class FacturasResponse {
+
+public class NitRespnse {
 
     private String mensaje;
-    private double totalVenta;
-    private List<FacturasResponseDto> facturasResponseDto;
+    List<NitResponseDto> nitResponseDtos;
 
-    public FacturasResponse(String mensaje) {
+    public NitRespnse(String mensaje){
+
         this.mensaje = mensaje;
     }
-
 }

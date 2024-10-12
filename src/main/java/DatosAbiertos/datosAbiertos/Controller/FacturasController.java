@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "api/data")
+@RequestMapping(value = "api/data/")
 
 public class FacturasController {
     @Autowired

@@ -7,14 +7,13 @@ import java.util.List;
 
 @Setter
 @Getter
-public class FacturasResponse {
+
+public class ProponenteResponse {
 
     private String mensaje;
-    private double totalVenta;
-    private List<FacturasResponseDto> facturasResponseDto;
 
-    public FacturasResponse(String mensaje) {
+    List<ProponenteResponseDto> proponenteResponseDtos;
+    public ProponenteResponse(String mensaje){
         this.mensaje = mensaje;
     }
-
 }
